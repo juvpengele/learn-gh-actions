@@ -1,0 +1,26 @@
+name : api-build
+on:
+  push:
+    paths:
+      - 'api/**'
+      - '.github/workflows/api-buid.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./api
+      - name: Build API
+        run: npm run build
+        working-directory: ./api
+      - name: Run tests
+        run: npm test
+        working-directory: ./api

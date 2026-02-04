@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node src/server.js",
+    "build": "npm run clean && npm run copy",
+    "clean": "rm -rf dist",
+    "copy": "mkdir -p dist && cp -r src dist/ && cp package.json dist/",
+    "build:prod": "npm run build && cd dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
