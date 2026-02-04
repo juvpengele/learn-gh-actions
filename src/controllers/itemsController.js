@@ -4,7 +4,10 @@ let items = [
   { id: 2, name: 'Item 2', description: 'Second item', createdAt: new Date().toISOString() }
 ];
 
-let nextId = 3;
+// Helper function to get next ID
+const getNextId = () => {
+  return items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1;
+};
 
 // Get all items
 const getAllItems = (req, res) => {
@@ -45,7 +48,7 @@ const createItem = (req, res) => {
   }
 
   const newItem = {
-    id: nextId++,
+    id: getNextId(),
     name,
     description: description || '',
     createdAt: new Date().toISOString()
