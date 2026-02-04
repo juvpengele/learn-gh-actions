@@ -17,10 +17,10 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm install
-        working-directory: ./api
+        working-directory: api
       - name: Build API
         run: npm run build
-        working-directory: ./api
+        working-directory: api
       - name: Run tests
         run: npm test
-        working-directory: ./api
+        working-directory: api
