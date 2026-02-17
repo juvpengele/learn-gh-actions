@@ -17,7 +17,9 @@ jobs:
           node-version: '18'
       - name: Display node version
         run: node --version
+        working-directory: ./api
       - name: Install dependencies
         run: npm install
+        working-directory: ../
       - name: Build API
         run: npm run build
